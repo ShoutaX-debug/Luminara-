@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luminara</title>
+  <link rel="icon" type="image/png" href="Logo luminara.png" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/gt-super-display" rel="stylesheet" />
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline poster="poster.jpg" aria-hidden="true">
+      <source src="video 1.mp4" type="video/mp4" />
+      <source src="video 1.webm" type="video/webm" />
+    </video>
+
+    <header class="navbar">
+      <nav class="nav-links">
+        <div class="nav-left">
+          <a href="#home">Home</a>
+          <a href="#event">Event</a>
+          <a href="#about">Tentang</a>
+        </div>
+        <div class="nav-center">
+          <div class="navbar-logo-group">
+            <img src="Logo luminara.png" alt="Luminara Logo" class="navbar-logo-img" />
+            <span class="navbar-logo-text">LUMINARA</span>
+          </div>
+        </div>
+        <div class="nav-right">
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Kontak</a>
+          <a href="#register">Logo Philosophy</a>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">
+         <span></span>
+          <span></span>
+         <span></span>
+      </div>
+
+      </nav>
+    </header>
+
+    <div class="hero-content">
+      <h1 class="hero-title">TREMENDOUS PRESENT</h1>
+      <h2 class="hero-sub">LUMINARA</h2>
+      <p class="hero-date">Sunday, 26 October 2025</p>
+      <p class="hero-place">Field of Al Ihsan, Al Ihsan Islamic Boarding School</p>
+      <div class="btn-container" data-aos="fade-up" data-aos-delay="600">
+        <a href="#about" class="about-btn">About The Event</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT -->
+  <section class="event" id="event">
+    <div class="event-content-wrapper">
+      <div class="event-text" data-aos="fade-up" data-aos-delay="100">
+        <h2>Event.</h2>
+        <p>
+          Pentas seni angkatan Tremendous yang memadukan musik, tari, teater, dan fashion dalam satu panggung.
+          Sebuah perayaan kreativitas dan kebersamaan yang tidak boleh dilewatkan.
+        </p>
+      </div>
+      <div class="event-images">
+        <img src="gambar1.jpg" alt="Event 1" data-aos="fade-up" data-aos-offset="150" data-aos-duration="1000" />
+        <img src="gambar1.jpg" alt="Event 2" data-aos="fade-down" data-aos-offset="150" data-aos-duration="1000" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / EVENT SCHEDULE -->
+  <section class="event-schedule" id="about">
+    <h2>Performance List</h2>
+    <div class="schedule-cards">
+      <div class="schedule-card" data-aos="fade-up">
+        <img src="grandopening.jpg" alt="Grand Opening">
+        <h3>Grand Opening (Upacara Adat)</h3>
+        <p>Upacara pembuka megah yang menandai dimulainya Luminara.</p>
+      </div>
+
+      <div class="schedule-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="mc.jpg" alt="MC">
+        <h3>MC</h3>
+        <p>Pemandu acara yang menghidupkan suasana dengan gaya khasnya.</p>
+      </div>
+
+      <div class="schedule-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="taqdimulqishoh.jpg" alt="Taqdimul Qishoh">
+        <h3>Taqdimul Qishoh</h3>
+        <p>Penampilan penceritaan islami yang penuh makna dan ekspresi.</p>
+      </div>
+
+      <div class="schedule-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="paduansuara.jpg" alt="Paduan Suara">
+        <h3>Paduan Suara</h3>
+        <p>Kolaborasi vokal indah dari para santri dengan harmoni sempurna.</p>
+      </div>
+
+      <div class="schedule-card" data-aos="fade-up" data-aos-delay="400">
+        <img src="drama.jpg" alt="Drama Musikal">
+        <h3>Drama Musikal</h3>
+        <p>Kisah penuh pesan moral yang dikemas dengan musik dan akting memukau.</p>
+      </div>
+
+      <div class="schedule-card" data-aos="fade-up" data-aos-delay="500">
+        <img src="marchingband.jpg" alt="Marching Band">
+        <h3>Marching Band</h3>
+        <p>Penampilan megah dengan irama dan formasi yang memukau.</p>
+      </div>
+
+      <div class="schedule-card" data-aos="fade-up" data-aos-delay="600">
+        <img src="fireshow.jpg" alt="Fire Show">
+        <h3>Fire Show</h3>
+        <p>Aksi spektakuler dengan api yang membangkitkan semangat penonton.</p>
+      </div>
+
+      <div class="schedule-card" data-aos="fade-up" data-aos-delay="700">
+        <img src="karnaval.jpg" alt="Karnaval">
+        <h3>Karnaval</h3>
+        <p>Parade penuh warna dan kreativitas dari setiap kelompok penampil.</p>
+      </div>
+
+      <div class="schedule-card" data-aos="fade-up" data-aos-delay="800">
+        <img src="pedangpora.jpg" alt="Pedang Pora">
+        <h3>Pedang Pora</h3>
+        <p>Tradisi kehormatan dengan formasi pedang simbol kebersamaan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <h2 class="gallery-title">Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-aos="fade-up"><img src="img/gallery1.jpg" alt="Gallery 1"></div>
+      <div class="gallery-item" data-aos="fade-up" data-aos-delay="100"><img src="img/gallery2.jpg" alt="Gallery 2"></div>
+      <div class="gallery-item" data-aos="fade-up" data-aos-delay="200"><img src="img/gallery3.jpg" alt="Gallery 3"></div>
+      <div class="gallery-item" data-aos="fade-up" data-aos-delay="300"><img src="img/gallery4.jpg" alt="Gallery 4"></div>
+      <div class="gallery-item" data-aos="fade-up" data-aos-delay="400"><img src="img/gallery5.jpg" alt="Gallery 5"></div>
+      <div class="gallery-item" data-aos="fade-up" data-aos-delay="500"><img src="img/gallery6.jpg" alt="Gallery 6"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Hubungi Kami</h2>
+      <p class="section-subtitle">Ada pertanyaan atau ingin bekerja sama dengan kami? Kirimkan pesanmu di bawah ini.</p>
+
+      <div class="contact-wrapper">
+        <div class="contact-info" data-aos="fade-right">
+          <h3>Informasi Kontak</h3>
+          <p><strong>Email:</strong> <a href="mailto:email@luminara.com">email@luminara.com</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/6285221670276" target="_blank">0852-2167-0276</a></p>
+          <p><strong>Alamat:</strong><br>Pesantren Modern Al Ihsan,<br>Baleendah, Bandung, Jawa Barat</p>
+        </div>
+
+        <div class="contact-form" data-aos="fade-left">
+          <form action="#" method="post">
+            <div class="form-group"><input type="text" name="name" placeholder="Nama Kamu" required /></div>
+            <div class="form-group"><input type="email" name="email" placeholder="Alamat Email" required /></div>
+            <div class="form-group"><textarea name="message" rows="5" placeholder="Tulis pesanmu di sini..." required></textarea></div>
+            <button type="submit" class="btn-send">Kirim Pesan</button>
+          </form>
+        </div>
+      </div>
+
+      <h2 class="section-title">Lokasi Kami</h2>
+      <p class="section-subtitle">Modern Pondok Pesantren Al Ihsan, Baleendah, Bandung, Jawa Barat, Indonesia 🌍</p>
+
+      <div id="map" data-aos="zoom-in"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+  <div class="footer-top">
+    <div class="footer-subscribe">
+      <h2>Join us for new releases, updates, and moments with <span>LUMINARA</span>.</h2>
+      <form class="subscribe-form">
+        <input type="email" placeholder="EMAIL" required />
+        <button type="submit">→</button>
+      </form>
+
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+
+      <p class="footer-contact">
+        General Inquiry<br>
+        <a href="mailto:email@luminara.com">email@luminara.com</a>
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <ul>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#event">Event</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+      <ul>
+        <li><a href="#contact">Kontak</a></li>
+        <li><a href="#register">Logo Philosophy</a></li>
+        <li><a href="#">Lokasi</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 <strong>LUMINARA</strong> | <a href="#">Privacy Policy</a></p>
+    <p>Celebrate Creativity. Shine Together.</p>
+  </div>
+</footer>
+
+  <!-- SCRIPT -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
