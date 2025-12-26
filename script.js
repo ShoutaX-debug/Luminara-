@@ -71,13 +71,65 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// === HAMBURGER TOGGLE ===
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
+// === HAMBURGER TOGGLE & DYNAMIC MENU ===
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav-menu");
 
-menuToggle.addEventListener("click", () => {
-  const isActive = menuToggle.classList.toggle("active");
-  navMenu.classList.toggle("active");
-  menuToggle.setAttribute("aria-expanded", isActive);
+  if (menuToggle && navMenu) {
+    // 1. Clone existing links to avoid HTML duplication
+    const existingLinks = document.querySelectorAll('.nav-links a');
+    const mobileList = document.createElement('ul');
+    mobileList.className = 'mobile-nav-list';
+
+    existingLinks.forEach((link, index) => {
+      const li = document.createElement('li');
+      const clonedLink = link.cloneNode(true);
+
+      // Add animation delay for staggering effect
+      clonedLink.style.transitionDelay = `${0.1 + (index * 0.1)}s`;
+
+      // Close menu when a link is clicked
+      clonedLink.addEventListener('click', () => {
+        closeMenu();
+      });
+
+      li.appendChild(clonedLink);
+      mobileList.appendChild(li);
+    });
+
+    navMenu.appendChild(mobileList);
+
+    // 2. Toggle Logic
+    function toggleMenu() {
+      const isActive = menuToggle.classList.toggle("active");
+      navMenu.classList.toggle("active");
+
+      // Update ARIA
+      menuToggle.setAttribute("aria-expanded", isActive);
+      navMenu.setAttribute("aria-hidden", !isActive);
+
+      // Prevent body scroll
+      document.body.style.overflow = isActive ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      menuToggle.classList.remove("active");
+      navMenu.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      navMenu.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener("click", toggleMenu);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+  }
 });
 

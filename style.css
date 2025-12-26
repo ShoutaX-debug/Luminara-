@@ -1194,7 +1194,7 @@ section {
   left: 0;
   height: 100vh;
   width: 100%;
-  background: rgba(0, 75, 160, 0.96); /* biru terang saat dibuka */
+  background: rgba(13, 27, 71, 0.98);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1203,6 +1203,7 @@ section {
   visibility: hidden;
   transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
   z-index: 2000;
+  backdrop-filter: blur(10px);
 }
 
 #nav-menu.active {
@@ -1211,29 +1212,39 @@ section {
   visibility: visible;
 }
 
-/* Daftar menu di fullscreen */
-#nav-menu ul {
+/* Dynamic List Styles */
+.mobile-nav-list {
   list-style: none;
   padding: 0;
   margin: 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-#nav-menu li {
-  margin: 20px 0;
-}
-
-#nav-menu a {
+.mobile-nav-list a {
   color: #fff;
-  font-size: 1.8rem;
+  font-family: "GT Super Display", serif;
+  font-size: 2rem;
   font-weight: 600;
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-#nav-menu a:hover {
-  color: #ffdd55;
-  transform: scale(1.05);
+#nav-menu.active .mobile-nav-list a {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.mobile-nav-list a:hover {
+  color: #FFD700;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 /* DESKTOP MODE */
