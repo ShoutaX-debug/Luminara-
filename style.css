@@ -1164,6 +1164,9 @@ section {
   justify-content: space-between;
   cursor: pointer;
   z-index: 2001;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .menu-toggle span {
@@ -1197,13 +1200,15 @@ section {
   align-items: center;
   transform: translateY(-100%);
   opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  visibility: hidden;
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
   z-index: 2000;
 }
 
 #nav-menu.active {
   transform: translateY(0);
   opacity: 1;
+  visibility: visible;
 }
 
 /* Daftar menu di fullscreen */
@@ -1238,30 +1243,6 @@ section {
   }
 
   #nav-menu {
-    all: unset;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-  }
-
-  #nav-menu a {
-    font-size: 1rem;
-    color: #fff;
-    position: relative;
-  }
-
-  #nav-menu a::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #00b4ff;
-    transition: width 0.3s ease;
-  }
-
-  #nav-menu a:hover::after {
-    width: 100%;
+    display: none !important;
   }
 }
