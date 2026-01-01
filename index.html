@@ -12,6 +12,7 @@
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.cdnfonts.com/css/gt-super-display" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- Style -->
   <link rel="stylesheet" href="style.css" />
@@ -180,9 +181,9 @@
 
         <div class="contact-form" data-aos="fade-left">
           <form action="#" method="post">
-            <div class="form-group"><input type="text" name="name" placeholder="Nama Kamu" required /></div>
-            <div class="form-group"><input type="email" name="email" placeholder="Alamat Email" required /></div>
-            <div class="form-group"><textarea name="message" rows="5" placeholder="Tulis pesanmu di sini..." required></textarea></div>
+            <div class="form-group"><input type="text" name="name" placeholder="Nama Kamu" aria-label="Nama Kamu" autocomplete="name" required /></div>
+            <div class="form-group"><input type="email" name="email" placeholder="Alamat Email" aria-label="Alamat Email" autocomplete="email" required /></div>
+            <div class="form-group"><textarea name="message" rows="5" placeholder="Tulis pesanmu di sini..." aria-label="Pesan" required></textarea></div>
             <button type="submit" class="btn-send">Kirim Pesan</button>
           </form>
         </div>
@@ -201,14 +202,14 @@
     <div class="footer-subscribe">
       <h2>Join us for new releases, updates, and moments with <span>LUMINARA</span>.</h2>
       <form class="subscribe-form">
-        <input type="email" placeholder="EMAIL" required />
-        <button type="submit">→</button>
+        <input type="email" placeholder="EMAIL" aria-label="Email Address" required />
+        <button type="submit" aria-label="Subscribe">→</button>
       </form>
 
       <div class="footer-social">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
       </div>
 
       <p class="footer-contact">
