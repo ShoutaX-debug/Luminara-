@@ -75,9 +75,74 @@ window.addEventListener("scroll", () => {
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 
-menuToggle.addEventListener("click", () => {
-  const isActive = menuToggle.classList.toggle("active");
-  navMenu.classList.toggle("active");
-  menuToggle.setAttribute("aria-expanded", isActive);
-});
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener("click", () => {
+    const isActive = menuToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    menuToggle.setAttribute("aria-expanded", isActive);
+  });
+}
 
+// === FORM HANDLING ===
+document.addEventListener('DOMContentLoaded', () => {
+  // Contact Form
+  const contactForm = document.querySelector('.contact-form form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.btn-send');
+      const originalText = btn.innerText;
+
+      btn.innerText = 'Mengirim...';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      btn.style.cursor = 'not-allowed';
+
+      setTimeout(() => {
+        btn.innerText = 'Terkirim!';
+        btn.style.background = '#fff';
+        btn.style.color = '#000';
+
+        contactForm.reset();
+
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          btn.style.background = ''; // Revert to CSS
+          btn.style.color = '';
+          btn.style.cursor = 'pointer';
+        }, 3000);
+      }, 1500);
+    });
+  }
+
+  // Subscribe Form
+  const subscribeForm = document.querySelector('.subscribe-form');
+  if (subscribeForm) {
+    subscribeForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button');
+      const originalText = btn.innerText;
+
+      // Spinner or just change icon
+      btn.innerText = '...';
+      btn.disabled = true;
+      btn.style.cursor = 'not-allowed';
+
+      setTimeout(() => {
+        btn.innerHTML = '✓'; // Checkmark
+        btn.style.color = '#fff'; // White checkmark
+
+        subscribeForm.reset();
+
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.disabled = false;
+          btn.style.color = ''; // Revert to CSS
+          btn.style.cursor = 'pointer';
+        }, 3000);
+      }, 1500);
+    });
+  }
+});
