@@ -179,10 +179,10 @@
         </div>
 
         <div class="contact-form" data-aos="fade-left">
-          <form action="#" method="post">
-            <div class="form-group"><input type="text" name="name" placeholder="Nama Kamu" required /></div>
-            <div class="form-group"><input type="email" name="email" placeholder="Alamat Email" required /></div>
-            <div class="form-group"><textarea name="message" rows="5" placeholder="Tulis pesanmu di sini..." required></textarea></div>
+          <form action="#" method="post" id="contactForm">
+            <div class="form-group"><input type="text" name="name" placeholder="Nama Kamu" aria-label="Nama Kamu" required /></div>
+            <div class="form-group"><input type="email" name="email" placeholder="Alamat Email" aria-label="Alamat Email" required /></div>
+            <div class="form-group"><textarea name="message" rows="5" placeholder="Tulis pesanmu di sini..." aria-label="Tulis pesanmu di sini" required></textarea></div>
             <button type="submit" class="btn-send">Kirim Pesan</button>
           </form>
         </div>
@@ -200,15 +200,15 @@
   <div class="footer-top">
     <div class="footer-subscribe">
       <h2>Join us for new releases, updates, and moments with <span>LUMINARA</span>.</h2>
-      <form class="subscribe-form">
-        <input type="email" placeholder="EMAIL" required />
-        <button type="submit">→</button>
+      <form class="subscribe-form" id="subscribeForm">
+        <input type="email" placeholder="EMAIL" aria-label="Email Address" required />
+        <button type="submit" aria-label="Subscribe">→</button>
       </form>
 
       <div class="footer-social">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
 
       <p class="footer-contact">

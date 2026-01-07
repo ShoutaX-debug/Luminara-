@@ -21,6 +21,7 @@ document.body.appendChild(aosScript);
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar");
   if (!navbar) return; // <-- jaga-jaga kalau elemen gak ada
+  // Menggabungkan logika scroll: gunakan threshold 10px agar lebih responsif
   if (window.scrollY > 10) {
     navbar.classList.add("scrolled");
   } else {
@@ -61,14 +62,43 @@ document.addEventListener("DOMContentLoaded", () => {
     .openPopup();
 });
 
-// === NAVBAR SCROLL EFFECT ===
-window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".navbar");
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
+// === FORM HANDLING (UX ENHANCEMENT) ===
+function handleFormSubmit(formId, buttonSelector, originalText, successText) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const btn = form.querySelector(buttonSelector);
+    if (!btn) return;
+
+    // Loading state
+    const originalContent = btn.innerHTML;
+    btn.innerHTML = "Wait...";
+    btn.disabled = true;
+    btn.style.opacity = "0.7";
+    btn.style.cursor = "not-allowed";
+
+    setTimeout(() => {
+      // Success state
+      btn.innerHTML = successText;
+      btn.style.opacity = "1";
+      form.reset();
+
+      // Revert after delay
+      setTimeout(() => {
+        btn.innerHTML = originalContent;
+        btn.disabled = false;
+        btn.style.cursor = "pointer";
+      }, 3000);
+    }, 1500);
+  });
+}
+
+// Initialize form handlers
+document.addEventListener("DOMContentLoaded", () => {
+  handleFormSubmit("contactForm", ".btn-send", "Kirim Pesan", "Terkirim!");
+  handleFormSubmit("subscribeForm", "button[type='submit']", "→", "Subscribed!");
 });
 
 // === HAMBURGER TOGGLE ===
