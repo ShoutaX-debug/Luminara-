@@ -81,3 +81,36 @@ menuToggle.addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", isActive);
 });
 
+// === FORM HANDLING ===
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    if (!btn) return;
+
+    const originalText = btn.innerHTML;
+    const isArrow = originalText.includes('→');
+
+    btn.disabled = true;
+    btn.innerHTML = isArrow ? '...' : 'Mengirim...';
+    btn.style.opacity = '0.7';
+
+    setTimeout(() => {
+      btn.innerHTML = isArrow ? '✓' : 'Terkirim!';
+      btn.style.background = '#4CAF50';
+      btn.style.borderColor = '#4CAF50';
+      if (!isArrow) btn.style.color = '#fff';
+
+      form.reset();
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        btn.style.opacity = '';
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        if (!isArrow) btn.style.color = '';
+      }, 2000);
+    }, 1500);
+  });
+});
