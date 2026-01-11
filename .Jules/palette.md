@@ -1,0 +1,3 @@
+## 2024-05-22 - Accessibility for Placeholder-Only Forms
+**Learning:** This application uses a visual design pattern where form labels are omitted in favor of placeholders. While visually clean, this is inaccessible to screen reader users who may not have context for the inputs once they start typing or if the placeholder is not announced.
+**Action:** When encountering forms that rely solely on placeholders for labels, always add `aria-label` attributes to the input elements to provide a robust accessible name without altering the visual design. Similarly, icon-only buttons (like social media links or arrow buttons) must have `aria-label` attributes.
