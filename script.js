@@ -31,43 +31,66 @@ window.addEventListener("scroll", () => {
 // ============= INISIALISASI PETA LEAFLET =============
 document.addEventListener("DOMContentLoaded", () => {
   const mapContainer = document.getElementById("map");
-  if (!mapContainer) return; // <-- jaga-jaga kalau belum ada elemen peta
+  if (mapContainer) {
+    // Koordinat Pesantren Modern Al Ihsan Baleendah
+    const pesantren = [-7.467965, 107.623891];
 
-  // Koordinat Pesantren Modern Al Ihsan Baleendah
-  const pesantren = [-7.467965, 107.623891];
+    // Buat peta
+    const map = L.map("map").setView(pesantren, 17);
 
-  // Buat peta
-  const map = L.map("map").setView(pesantren, 17);
+    // Tambahkan layer OpenStreetMap
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    }).addTo(map);
 
-  // Tambahkan layer OpenStreetMap
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-  }).addTo(map);
+    // Tambahkan marker
+    const marker = L.marker(pesantren).addTo(map);
 
-  // Tambahkan marker
-  const marker = L.marker(pesantren).addTo(map);
+    // Popup info
+    marker
+      .bindPopup(
+        `
+      <div style="text-align:center;">
+        <h3 style="margin-bottom:4px;color:#FFD700;">Modern Pondok Pesantren Al Ihsan</h3>
+        <p style="color:#333;margin:0;">Baleendah, Bandung, Jawa Barat</p>
+      </div>
+    `
+      )
+      .openPopup();
+  }
 
-  // Popup info
-  marker
-    .bindPopup(
-      `
-    <div style="text-align:center;">
-      <h3 style="margin-bottom:4px;color:#FFD700;">Modern Pondok Pesantren Al Ihsan</h3>
-      <p style="color:#333;margin:0;">Baleendah, Bandung, Jawa Barat</p>
-    </div>
-  `
-    )
-    .openPopup();
-});
+  // === FORM SUBMISSION HANDLING (Palette Micro-UX) ===
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-// === NAVBAR SCROLL EFFECT ===
-window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".navbar");
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
+      const btn = contactForm.querySelector("button[type='submit']");
+      const originalText = btn.innerText;
+
+      // Loading State
+      btn.innerText = "Mengirim...";
+      btn.disabled = true;
+      btn.style.opacity = "0.7";
+      btn.style.cursor = "wait";
+
+      // Simulate network request
+      setTimeout(() => {
+        // Success State
+        btn.innerHTML = "Terkirim! <i class='fas fa-check'></i>";
+        btn.style.opacity = "1";
+        btn.style.cursor = "default";
+        contactForm.reset();
+
+        // Reset button after delay
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.disabled = false;
+          btn.style.cursor = "pointer";
+        }, 3000);
+      }, 1500);
+    });
   }
 });
 
@@ -75,9 +98,10 @@ window.addEventListener("scroll", () => {
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 
-menuToggle.addEventListener("click", () => {
-  const isActive = menuToggle.classList.toggle("active");
-  navMenu.classList.toggle("active");
-  menuToggle.setAttribute("aria-expanded", isActive);
-});
-
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener("click", () => {
+    const isActive = menuToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    menuToggle.setAttribute("aria-expanded", isActive);
+  });
+}
