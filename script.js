@@ -75,9 +75,41 @@ window.addEventListener("scroll", () => {
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 
-menuToggle.addEventListener("click", () => {
-  const isActive = menuToggle.classList.toggle("active");
-  navMenu.classList.toggle("active");
-  menuToggle.setAttribute("aria-expanded", isActive);
-});
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener("click", () => {
+    const isActive = menuToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    menuToggle.setAttribute("aria-expanded", isActive);
+  });
+}
 
+// ============= CONTACT FORM FEEDBACK =============
+const contactForm = document.querySelector(".contact-form form");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const btn = this.querySelector(".btn-send");
+    const originalText = btn.innerText;
+
+    // Loading state
+    btn.innerText = "Mengirim...";
+    btn.disabled = true;
+    btn.style.opacity = "0.7";
+    btn.style.cursor = "not-allowed";
+
+    // Simulate network request
+    setTimeout(() => {
+      // Success state
+      btn.innerText = "Terkirim! ✅";
+      btn.style.opacity = "1";
+      contactForm.reset();
+
+      // Reset button after delay
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.disabled = false;
+        btn.style.cursor = "pointer";
+      }, 3000);
+    }, 2000);
+  });
+}
