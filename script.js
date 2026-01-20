@@ -81,3 +81,34 @@ menuToggle.addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", isActive);
 });
 
+
+// === CONTACT FORM HANDLING ===
+const contactForm = document.querySelector(".contact-form form");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector(".btn-send");
+    const originalText = btn.innerText;
+
+    // Loading State
+    btn.innerText = "Mengirim...";
+    btn.disabled = true;
+    btn.style.cursor = "not-allowed";
+    btn.style.opacity = "0.7";
+
+    // Simulate sending
+    setTimeout(() => {
+      // Success State
+      btn.innerText = "Terkirim!";
+      contactForm.reset();
+
+      // Reset after delay
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.disabled = false;
+        btn.style.cursor = "pointer";
+        btn.style.opacity = "1";
+      }, 2000);
+    }, 1500);
+  });
+}
