@@ -81,3 +81,25 @@ menuToggle.addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", isActive);
 });
 
+// === CONTACT FORM HANDLING ===
+const contactForm = document.querySelector(".contact-form form");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector("button");
+    const originalText = btn.innerText;
+
+    btn.innerText = "MENGIRIM...";
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.innerText = "TERKIRIM!";
+      contactForm.reset();
+
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.disabled = false;
+      }, 3000);
+    }, 2000);
+  });
+}
