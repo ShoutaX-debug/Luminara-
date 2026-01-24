@@ -81,3 +81,37 @@ menuToggle.addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", isActive);
 });
 
+// === CONTACT FORM SUBMISSION ===
+const contactForm = document.querySelector('.contact-form form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('.btn-send');
+    const originalText = btn.textContent;
+
+    // Loading State
+    btn.disabled = true;
+    btn.textContent = 'MENGIRIM...';
+    btn.style.opacity = '0.7';
+    btn.style.cursor = 'not-allowed';
+
+    // Simulate Network Request
+    setTimeout(() => {
+      // Success State
+      btn.textContent = 'PESAN TERKIRIM!';
+      btn.style.background = '#4CAF50';
+      btn.style.color = '#fff';
+
+      // Reset Form
+      setTimeout(() => {
+          contactForm.reset();
+          btn.disabled = false;
+          btn.textContent = originalText;
+          btn.style.opacity = '1';
+          btn.style.cursor = 'pointer';
+          btn.style.background = ''; // Reset to default CSS
+          btn.style.color = ''; // Reset to default CSS
+      }, 2500);
+    }, 1500);
+  });
+}
