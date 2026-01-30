@@ -81,3 +81,32 @@ menuToggle.addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", isActive);
 });
 
+
+// === CONTACT FORM SUBMISSION ===
+const contactForm = document.querySelector('.contact-form form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('.btn-send');
+    if (!btn) return;
+
+    // Simpan teks asli
+    const originalText = btn.textContent;
+
+    // Ubah ke loading state (teks UPPERCASE sesuai CSS)
+    btn.textContent = 'MENGIRIM...';
+    btn.disabled = true;
+
+    // Simulasi kirim
+    setTimeout(() => {
+      btn.textContent = 'PESAN TERKIRIM!';
+      contactForm.reset();
+
+      // Kembalikan ke semula
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }, 3000);
+    }, 2000);
+  });
+}
