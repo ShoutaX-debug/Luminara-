@@ -1,0 +1,3 @@
+## 2025-10-26 - Form Labeling & Icon Buttons
+**Learning:** This codebase frequently uses inputs with placeholders but no visible labels. While visually minimalist, it fails accessibility checks. The pattern of `<input placeholder="...">` must be paired with `aria-label="..."` if visible labels are not desired. Also, icon-only buttons (like social links) consistently lacked `aria-label` and `aria-hidden` on the icons.
+**Action:** When creating new forms or icon buttons, always check for `aria-label` if no visible text is present. Use `aria-hidden="true"` on decorative icons inside labeled buttons.
